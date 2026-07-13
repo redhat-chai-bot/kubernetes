@@ -8,7 +8,7 @@ godebug default=go1.24
 
 require (
 	github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5
-	github.com/davecgh/go-spew v1.1.1
+	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
 	github.com/fxamacker/cbor/v2 v2.7.0
 	github.com/gogo/protobuf v1.3.2
 	github.com/google/gnostic-models v0.6.9
@@ -24,8 +24,8 @@ require (
 	gopkg.in/inf.v0 v0.9.1
 	k8s.io/klog/v2 v2.130.1
 	k8s.io/kube-openapi v0.0.0-20250318190949-c8a335a9a2ff
-	k8s.io/utils v0.0.0-20241104100929-3ea5e8cea738
-	sigs.k8s.io/json v0.0.0-20241010143419-9aa6b5e7a4b3
+	k8s.io/utils v0.0.0-20241210054802-24370beab758
+	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8
 	sigs.k8s.io/randfill v1.0.0
 	sigs.k8s.io/structured-merge-diff/v4 v4.6.0
 	sigs.k8s.io/yaml v1.4.0
@@ -44,10 +44,44 @@ require (
 	github.com/onsi/ginkgo/v2 v2.21.0 // indirect
 	github.com/onsi/gomega v1.35.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	golang.org/x/text v0.23.0 // indirect
 	google.golang.org/protobuf v1.36.5 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+)
+
+replace (
+	k8s.io/api => ../api
+	k8s.io/apiextensions-apiserver => ../apiextensions-apiserver
+	k8s.io/apimachinery => ../apimachinery
+	k8s.io/apiserver => ../apiserver
+	k8s.io/cli-runtime => ../cli-runtime
+	k8s.io/client-go => ../client-go
+	k8s.io/cloud-provider => ../cloud-provider
+	k8s.io/cluster-bootstrap => ../cluster-bootstrap
+	k8s.io/code-generator => ../code-generator
+	k8s.io/component-base => ../component-base
+	k8s.io/component-helpers => ../component-helpers
+	k8s.io/controller-manager => ../controller-manager
+	k8s.io/cri-api => ../cri-api
+	k8s.io/cri-client => ../cri-client
+	k8s.io/csi-translation-lib => ../csi-translation-lib
+	k8s.io/dynamic-resource-allocation => ../dynamic-resource-allocation
+	k8s.io/endpointslice => ../endpointslice
+	k8s.io/externaljwt => ../externaljwt
+	k8s.io/kms => ../kms
+	k8s.io/kube-aggregator => ../kube-aggregator
+	k8s.io/kube-controller-manager => ../kube-controller-manager
+	k8s.io/kube-proxy => ../kube-proxy
+	k8s.io/kube-scheduler => ../kube-scheduler
+	k8s.io/kubectl => ../kubectl
+	k8s.io/kubelet => ../kubelet
+	k8s.io/metrics => ../metrics
+	k8s.io/mount-utils => ../mount-utils
+	k8s.io/pod-security-admission => ../pod-security-admission
+	k8s.io/sample-apiserver => ../sample-apiserver
+	k8s.io/sample-cli-plugin => ../sample-cli-plugin
+	k8s.io/sample-controller => ../sample-controller
 )
