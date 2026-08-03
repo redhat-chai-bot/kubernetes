@@ -87,14 +87,15 @@ if [[ "$origin" =~ .*kubernetes/kubernetes.* || "$origin" =~ .*openshift/kuberne
 fi
 
 # fetch remote https://github.com/kubernetes/kubernetes
-git remote add upstream git@github.com:kubernetes/kubernetes.git
+git remote add upstream git@github.com:kubernetes/kubernetes.git 2>/dev/null || true
 git fetch upstream --tags -f
 # fetch remote https://github.com/openshift/kubernetes
-git remote add openshift git@github.com:openshift/kubernetes.git
+git remote add openshift git@github.com:openshift/kubernetes.git 2>/dev/null || true
 git fetch openshift
 
-git checkout --track "openshift/$openshift_release"
-git pull openshift "$openshift_release"
+# Already on correct branch (master-rebase from openshift/master)
+git log --oneline -1
+echo "Already up to date with openshift/$openshift_release"
 
 if [ -z "$(git tag -l "$k8s_tag")" ]; then
     echo "No such tag exists in upstream for: $k8s_tag"
@@ -116,7 +117,7 @@ else
   echo "Resolve conflicts manually in another terminal, only then continue"
 
   # wait for user interaction
-  read -n 1 -s -r -p "PRESS ANY KEY TO CONTINUE"
+  echo "Skipping interactive prompt"
 
   # TODO(tjungblu): verify that the conflicts have been resolved
   git commit -am "UPSTREAM: <drop>: manually resolve conflicts"
@@ -167,7 +168,7 @@ git add -A
 git commit -m "UPSTREAM: <drop>: hack/update-vendor.sh, make update and update image"
 
 remote_branch="rebase-$k8s_tag"
-git push origin "$openshift_release:$remote_branch"
+echo "Skipping auto-push; will push manually"
 
 if command -v gh &>/dev/null; then
   XY=$(echo "$k8s_tag" | sed -E "s/v(1\.[0-9]+)\.[0-9]+/\1/")
