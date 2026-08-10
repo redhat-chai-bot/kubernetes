@@ -11,7 +11,7 @@ RUN make WHAT=openshift-hack/e2e/k8s-e2e.test; \
     cp /go/src/k8s.io/kubernetes/openshift-hack/test-kubernetes-e2e.sh /tmp/build/; \
     cp /go/src/k8s.io/kubernetes/openshift-hack/images/kube-proxy/test-kube-proxy.sh /tmp/build/
 
-FROM registry.ci.openshift.org/ocp/5.0:tools
+FROM quay-proxy.ci.openshift.org/openshift/ci:ocp_5.0_tools
 COPY --from=builder /tmp/build/k8s-e2e.test /usr/bin/
 COPY --from=builder /tmp/build/ginkgo /usr/bin/
 COPY --from=builder /tmp/build/k8s-tests-ext /usr/bin/
