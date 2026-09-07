@@ -12,7 +12,6 @@ require (
 )
 
 require (
-	github.com/google/go-cmp v0.7.0 // indirect
 	go.opentelemetry.io/otel v1.41.0 // indirect
 	go.opentelemetry.io/otel/sdk/metric v1.36.0 // indirect
 	golang.org/x/net v0.56.0 // indirect
